@@ -8,12 +8,12 @@ public class PlayerController : MonoBehaviour
 
 	public int rotation;
     public Vector3 Orientation;
-	private Vector2 initialPos;
-	private Vector2 Destination;
+    private Vector2 initialPos;
+    private Vector2 Destination;
 
     private Animator anim;
-	public bool canMove;
-	public bool playerMoving;
+    public bool canMove;
+    public bool playerMoving;
 
     private Rigidbody2D rbody;
     Vector2 velocity;
@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
+    	//Singleton Pattern
+	
         //Checks if the instaniated object is a copy
         /* if (Instance != null)
         {
@@ -38,24 +40,25 @@ public class PlayerController : MonoBehaviour
 		GameObject.DontDestroyOnLoad (this.gameObject);
 		rotation = 90;*/
     }
+	
     void Start()
     {
         anim = GetComponent<Animator>();
         rbody = GetComponent<Rigidbody2D>();
     }
 
-
     void FixedUpdate()
     {
 		//Get Input
 		float inputX = Input.GetAxisRaw("Horizontal");
 		float inputY = Input.GetAxisRaw("Vertical");
-		if (canMove) {
+		if (canMove) 
+		{
             //if key is pressed on Horizontal save time it was pressed
             if (inputX != 0)
             {
                 if (timeDownX == 0.0f) //if there is no stored time for it
-                    timeDownX = Time.time;
+				timeDownX = Time.time;
             }
             else
             {
@@ -66,7 +69,7 @@ public class PlayerController : MonoBehaviour
             if (inputY != 0)
             {
                 if (timeDownY == 0.0f) //if there is no stored time for it
-                    timeDownY = Time.time;
+                timeDownY = Time.time;
             }
             else
             {
@@ -78,13 +81,12 @@ public class PlayerController : MonoBehaviour
 			if (timeDownX > timeDownY)
             {
                 velocity = Vector2.right * inputX;
-            }
-			else if (timeDownX < timeDownY) 
-			{
+            } else if (timeDownX < timeDownY) {
 				velocity = Vector2.up * inputY;
 			}
 
-			if (inputX != 0 && inputY != 0) {
+			if (inputX != 0 && inputY != 0) 
+			{
 				if (timeDownX == timeDownY) {
 					inputX = 0;
 				} else if (timeDownX > timeDownY) {
@@ -93,6 +95,7 @@ public class PlayerController : MonoBehaviour
 					inputX = 0;
 				}
 			}
+			
 			if (inputX > 0) {
 				Orientation = Vector3.right;
 				rotation = 0;
