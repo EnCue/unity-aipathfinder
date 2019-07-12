@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 32adf82875f050749bb8f5a31f8b80e5
+timeCreated: 1506303665
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - flameSprite: {fileID: 21300000, guid: 58190cad1f8e2714d87272fbf329c535, type: 3}
+  - statusRef: {instanceID: 0}
+  - Target: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
